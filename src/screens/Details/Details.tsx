@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Flex, Text, Tooltip } from '@chakra-ui/react';
 import { ArrowBackIcon, InfoIcon } from '@chakra-ui/icons';
-import { FilterProperties } from '../../utils/constants';
+import { EventNameEnum, FilterProperties } from '../../utils/constants';
 import { Icon } from '@chakra-ui/react';
 import { LuCircleAlert } from 'react-icons/lu';
 import { BiDuplicate } from 'react-icons/bi';
@@ -158,7 +158,15 @@ export function Details() {
           <PathHeaderText
             color="paragraph-text"
             cursor="pointer"
-            onClick={() => navigate(SCREENS.CATALOG)}
+            onClick={() => {
+              navigate(SCREENS.CATALOG);
+              window.dispatchEvent(new CustomEvent(EventNameEnum.CLICK, {
+                detail: {
+                  component: 'breadcrumb',
+                  name: 'explore-the-catalog',
+                },
+              }));
+            }}
           >
             Explore the Catalog
           </PathHeaderText>
@@ -182,7 +190,15 @@ export function Details() {
                 transform: 'scale(0.98)',
               }}
               cursor="pointer"
-              onClick={() => navigate(SCREENS.CATALOG)}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent(EventNameEnum.CLICK, {
+                  detail: {
+                    component: 'button',
+                    name: 'details-go-back',
+                  },
+                }));
+                navigate(SCREENS.CATALOG);
+              }}
             />
             <Text fontWeight={700} fontSize={'32px'}>
               {antiPatternsData.name}
