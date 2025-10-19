@@ -2,7 +2,7 @@
   "name": "mfe-ap-catalog-version-2",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://nabsonp.github.io/mfe-ap-catalog-version-2",
+  "homepage": "https://mfe-exercise.github.io/mfe-ap-catalog-version-2",
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.8.2",
