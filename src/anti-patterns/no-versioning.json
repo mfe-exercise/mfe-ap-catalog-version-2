@@ -1,0 +1,32 @@
+{
+    "name": "No Versioning",
+    "alsoKnownAs": "",
+    "category": "Operations",
+    "problem": {
+      "text": "Micro frontends are not versioned.",
+      "image": ""
+    },
+    "symptomsAndConsequences": "Without proper version control, changes in one MFE can inadvertently affect others, leading to instability, incompatibility between components, and difficulties in rollback or maintenance.",
+    "solution": {
+      "text": "Adopt a clear versioning strategy, such as Semantic Versioning, to track and communicate changes effectively.",
+      "image": ""
+    },
+    "resultingContext": "Versioning ensures that updates are predictable and that existing versions continue to function without disruption, enabling safe evolution and better coordination across teams.",
+    "example": {
+      "text": "Consider a payment confirmation page with a fragment for calculating shipping costs. Whenever the user inputs shipping information into the fragment, the system generates a delivery charge and adds it to the total purchase amount displayed on the screen. Suppose the delivery charge’s return value format changes and the fragment is not versioned. The delivery charge will not be added to the total purchase amount, potentially resulting in a display error or even mistakenly free deliveries. However, if the fragment is versioned, the screen will not be affected by the format change, as it will continue to use the previous version of the fragment and can be updated later when necessary.",
+      "image": ""
+    },
+    "notes": "",
+    "relatedAntiPatterns": [
+      {
+        "title": "Spaghetti Architecture"
+      }
+    ],
+    "references": [
+      {
+        "title": "A Catalog of Micro Frontends Anti-patterns",
+        "href": "https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00079"
+      }
+    ]
+  }
+  

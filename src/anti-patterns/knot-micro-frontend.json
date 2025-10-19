@@ -1,0 +1,34 @@
+{
+  "name": "Knot Micro Frontend",
+  "alsoKnownAs": "",
+  "category": "Inter-frontend",
+  "problem": {
+    "text": "Three or more micro frontends communicate directly using context-specific interfaces.",
+    "image": ""
+  },
+  "symptomsAndConsequences": "The tight coupling between MFEs leads to brittle integrations, duplicated contract logic, and increased complexity when extending or replacing individual MFEs. The lack of a shared communication protocol prevents scalability and maintainability.",
+  "solution": {
+    "text": "Implement a domain-driven communication interface that is both generic and flexible. Define essential shared fields required for interoperability while allowing each MFE to include context-specific data through a structured, extensible payload (e.g., a generic field containing a list of typed objects).",
+    "image": ""
+  },
+  "resultingContext": "Implementing generic interfaces reduces coupling and enables each MFE to evolve independently while still supporting collaboration across the architecture.",
+  "example": {
+    "text": "Suppose an e-commerce system has MFEs for Digital Products (mfe-digital-products) and Payments (mfe-payments). The payment screen of mfe-payments receives the digital product data as a parameter. At a later stage, a Physical Products MFE (mfe-physical-products) is implemented, so developers add physical product-specific attributes to the payment screen to allow digital or physical product payment. Later, adding new product types requires constantly adding attributes specific to each product type to the payment screen, so it becomes a highly coupled knot.",
+    "image": "knot-micro-frontend-example.png"
+  },
+  "notes": "This anti-pattern is a case of the Spaghetti Architecture.",
+  "relatedAntiPatterns": [
+    {
+      "title": "Spaghetti Architecture"
+    },
+    {
+      "title": "Dependent deployment"
+    }
+  ],
+  "references": [
+    {
+      "title": "A Catalog of Micro Frontends Anti-patterns",
+      "href": "https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00079"
+    }
+  ]
+}

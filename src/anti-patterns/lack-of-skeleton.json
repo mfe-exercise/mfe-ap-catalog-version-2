@@ -1,0 +1,32 @@
+{
+    "name": "Lack of Skeleton",
+    "alsoKnownAs": "",
+    "category": "Operations",
+    "problem": {
+      "text": "No skeleton or predefined boilerplate is available as a base for creating new micro frontends.",
+      "image": ""
+    },
+    "symptomsAndConsequences": "This leads to inconsistencies across projects, repeated setup work, and increased onboarding time for new team members.",
+    "solution": {
+      "text": "Whenever a new technology is adopted for implementing a micro frontend, the development team should create a boilerplate repository containing the necessary base code. In addition, maintain comprehensive documentation that outlines every step required to create a new MFE, regardless of the technology stack.",
+      "image": ""
+    },
+    "resultingContext": "The skeleton promotes consistency, reduces setup time, and accelerates adoption across teams. Developers can create new MFE based on a documentation with instructions for cloning the skeleton repository, configuring CI/CD pipelines, setting up monitoring tools, applying required design patterns during development, and other relevant guidelines.",
+    "example": {
+      "text": "At the beginning of a specific system development, the developers create an MFE from scratch without adhering to a specific pattern. The second MFE is developed by copying files and code blocks from the first, changing specific parts. The exact process happens when creating new MFEs. Then, a diverse set of MFEs emerges, which hampers the establishment of automated pipelines, fosters code duplication, and complicates developer interchange between teams.",
+      "image": ""
+    },
+    "notes": "",
+    "relatedAntiPatterns": [
+      {
+        "title": "No CI&CD"
+      }
+    ],
+    "references": [
+      {
+        "title": "A Catalog of Micro Frontends Anti-patterns",
+        "href": "https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00079"
+      }
+    ]
+  }
+  

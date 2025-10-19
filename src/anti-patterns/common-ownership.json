@@ -1,0 +1,31 @@
+{
+    "name": "Common Ownership",
+    "alsoKnownAs": "",
+    "category": "Development",
+    "problem": {
+      "text": "A single team is tasked with managing all MFEs.",
+      "image": ""
+    },
+    "symptomsAndConsequences": "Can occur either due to a lack of team division or when teams are segmented based on technical aspects such as data, frontend, and backend. Adopting MFE without distinct teams compromises the intended independence of the architecture.",
+    "solution": {
+      "text": "Define the boundaries of teams and MFEs according to Domain-driven Design (DDD). Creating shared libraries can facilitate boundary definition and promote greater team independence.",
+      "image": "common-ownership-solution.png"
+    },
+    "resultingContext": "Each team will be responsible only for MFEs within its domain and the MFEs will share components and code through shared libraries.",
+    "example": {
+      "text": "Consider an organization where a single centralized team is responsible for maintaining all micro frontends, including users, checkout, and products, regardless of their domain context. This setup leads to bottlenecks, reduces team autonomy, and creates friction between domain experts and technical teams. By restructuring teams according to Domain-driven Design principles, the organization creates cross-functional teams, each responsible for its micro frontends, services, and databases.",
+      "image": ""
+    },
+    "notes": "The shared libraries must be carefully handled to avoid Dependency hell.",
+    "relatedAntiPatterns": [
+      {
+        "title": "Dependency hell"
+      }
+    ],
+    "references": [
+      {
+        "title": "A Catalog of Micro Frontends Anti-patterns",
+        "href": "https://doi.ieeecomputersociety.org/10.1109/ICSE55347.2025.00079"
+      }
+    ]
+  }
