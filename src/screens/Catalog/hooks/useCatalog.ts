@@ -86,23 +86,20 @@ const useCatalog = () => {
     if (!typing) searchData();
   }, [typing, searchData, search]);
 
-  const filtersItemsCount = useCallback(
-    (filterType: string) => {
-      return data.reduce(
-        (count, arrayEle) =>
-          arrayEle.category === filterType ? count + 1 : count,
-        0
-      );
-    },
-    [data]
-  );
+  const filtersItemsCount = (filterType: string) => {
+    return data.reduce(
+      (count, arrayEle) =>
+        arrayEle.category === filterType ? count + 1 : count,
+      0
+    );
+  };
 
   const filterData = useCallback(
     (filterType: string) => {
       if (filterType === FilterItemsEnum.ALL) return setFilteredData(data);
       setFilteredData(data.filter((item) => item.category === filterType));
     },
-    [data]
+    []
   );
 
   const filters = useMemo(() => {
@@ -144,7 +141,7 @@ const useCatalog = () => {
     };
 
     return [all, ...Array.from(uniqueFiltersMap.values())];
-  }, [filtersItemsCount, data]);
+  }, [filterData]);
 
   const handleClickItem = useCallback((data: TAntiPatternsItem) => {
     navigate(`/details/${data.name}`);
