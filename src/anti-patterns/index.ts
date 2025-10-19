@@ -26,7 +26,7 @@ import PartialUiMigration from './partial-ui-migration.json';
 import SpaghettiArchitecture from './spaghetti-architecture.json';
 import UnmediatedLegacyIntegration from './unmediated-legacy-integration.json';
 
-export default [
+const antiPatternsData = [
   AccessToDifferentDomains,
   AvoidingObservability,
   BidirectionalDataFlow,
@@ -55,3 +55,5 @@ export default [
   SpaghettiArchitecture,
   UnmediatedLegacyIntegration,
 ];
+
+export default antiPatternsData;
