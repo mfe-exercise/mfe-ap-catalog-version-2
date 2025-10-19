@@ -7,6 +7,12 @@ on:
   push:
     branches: [ "main" ]
 
+# Adicionar permissões para escrever no repositório
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
 
@@ -19,17 +25,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+        
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
+        
     - run: yarn install
     - run: yarn build --if-present
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
     - name: Deploy with gh-pages
       run: |
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        npx gh-pages -d build -u "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
